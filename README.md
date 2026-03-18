@@ -53,6 +53,10 @@ Each search result is checked for relevance **before** the page is fetched. Cosi
 
 Example: query "LLM agents news" — `flutrackers.com` (sim=0.12) filtered, `llm-stats.com` (sim=0.68) fetched.
 
+<p align="center">
+  <img src="src/production_rag_pipeline/image/pic.png" alt="Context-Aware Content Detection illustration">
+</p>
+
 ### Context-Aware Content Detection
 
 Two-stage check for price lists and tables. First structural: does >30% of lines look like numbers? Then semantic: is this price list actually relevant? This way `cbr.ru` exchange rates pass for a "курс евро" query (sim=0.75) but `steamcommunity.com` CS:GO prices get rejected (sim=0.05). No hardcoded domain whitelists.
