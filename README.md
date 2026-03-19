@@ -226,8 +226,6 @@ from production_rag_pipeline.pipeline import search_extract_rerank, build_llm_co
 from production_rag_pipeline.prompts import build_llm_prompt
 ```
 
----
-
 ## Example Pipeline Usage
 
 ```python
