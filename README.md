@@ -341,4 +341,4 @@ If you like this project, please give it a star ⭐
 
 For questions, feedback, or support, reach out to:
 
-[Issues](https://github.com/KazKozDev/production_rag_pipeline/issues) | [Artem KK](https://www.linkedin.com/in/kazkozdev/) | MIT [LICENSE](LICENSE)
+[Artem KK](https://www.linkedin.com/in/kazkozdev/) | MIT [LICENSE](LICENSE)
