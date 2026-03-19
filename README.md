@@ -19,19 +19,11 @@ Searches Bing + DuckDuckGo, filters noise before fetching, extracts clean conten
 
 ## Table of Contents
 
-- [How It Works](#how-it-works)
-- [Key Features](#key-features)
-- [Package Overview](#package-overview)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Output Example](#output-example)
-- [Public API](#public-api)
-- [Example Pipeline Usage](#example-pipeline-usage)
-- [Configuration](#configuration)
-- [Design Notes](#design-notes)
-- [Development](#development)
-- [Community](#community)
+|  |  |  |  |  |
+| --- | --- | --- | --- | --- |
+| [How It Works](#how-it-works) | [Key Features](#key-features) | [Package Overview](#package-overview) | [Requirements](#requirements) | [Installation](#installation) |
+| [Quick Start](#quick-start) | [Output Example](#output-example) | [Public API](#public-api) | [Example Pipeline Usage](#example-pipeline-usage) | [Configuration](#configuration) |
+| [Design Notes](#design-notes) | [Development](#development) | [Community](#community) |  |  |
 
 ## How It Works
 
