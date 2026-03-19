@@ -1,13 +1,17 @@
 import unittest
+from importlib import import_module
 from unittest.mock import patch
 
-from production_rag_pipeline.prompts import build_llm_prompt
-from production_rag_pipeline.search import search
+prompts_module = import_module("production_rag_pipeline.prompts")
+search_module = import_module("production_rag_pipeline.search")
+fetch_module = import_module("production_rag_pipeline.fetch")
+rerank_module = import_module("production_rag_pipeline.rerank")
+extract_module = import_module("production_rag_pipeline.extract")
 
 
 class SearchIntegrationTests(unittest.TestCase):
-    @patch("production_rag_pipeline.search.search_ddg")
-    @patch("production_rag_pipeline.search.search_bing")
+    @patch.object(search_module, "search_ddg")
+    @patch.object(search_module, "search_bing")
     def test_search_merges_results_and_enables_news_mode(self, mock_bing, mock_ddg):
         mock_bing.return_value = [
             {
@@ -24,7 +28,7 @@ class SearchIntegrationTests(unittest.TestCase):
             }
         ]
 
-        results = search("latest ai news", num=10, lang="en")
+        results = search_module.search("latest ai news", num=10, lang="en")
 
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0]["engines"], ["bing", "ddg"])
@@ -33,12 +37,12 @@ class SearchIntegrationTests(unittest.TestCase):
 
 
 class PromptIntegrationTests(unittest.TestCase):
-    @patch("production_rag_pipeline.extract.filter_low_quality_chunks")
-    @patch("production_rag_pipeline.extract.chunk_text")
-    @patch("production_rag_pipeline.rerank.rerank_chunks")
-    @patch("production_rag_pipeline.rerank.filter_results_by_relevance")
-    @patch("production_rag_pipeline.fetch.fetch_pages_parallel")
-    @patch("production_rag_pipeline.search.search")
+    @patch.object(extract_module, "filter_low_quality_chunks")
+    @patch.object(extract_module, "chunk_text")
+    @patch.object(rerank_module, "rerank_chunks")
+    @patch.object(rerank_module, "filter_results_by_relevance")
+    @patch.object(fetch_module, "fetch_pages_parallel")
+    @patch.object(search_module, "search")
     def test_build_llm_prompt_runs_end_to_end_with_mocked_search_and_fetch(
         self,
         mock_search,
@@ -86,7 +90,7 @@ class PromptIntegrationTests(unittest.TestCase):
             }
         ]
 
-        prompt = build_llm_prompt("bitcoin rate", lang="en")
+        prompt = prompts_module.build_llm_prompt("bitcoin rate", lang="en")
 
         self.assertIn("QUESTION: bitcoin rate", prompt)
         self.assertIn("[1] Bitcoin price overview", prompt)
