@@ -6,7 +6,7 @@
 
 ## Free Perplexity-style search for local sLLM
 
-A Python library that gives any local LLM free access to web search — like Perplexity, but self-hosted and without API costs.
+A Python library that gives any local LLM free access to web search — like Perplexity, but self-hosted and without API costs or limits.
 
 Searches Bing + DuckDuckGo, filters noise before fetching, extracts clean content, reranks by relevance, and outputs a complete LLM-ready prompt with inline citations. Plug it into Ollama, LM Studio, or any LLM API and get cited, structured answers from the internet.
 
@@ -53,10 +53,6 @@ Each search result is checked for relevance **before** the page is fetched. Cosi
 
 Example: query "LLM agents news" — `flutrackers.com` (sim=0.12) filtered, `llm-stats.com` (sim=0.68) fetched.
 
-<p align="center">
-  <img src="src/production_rag_pipeline/image/voronka" alt="Context-Aware Content Detection illustration">
-</p>
-
 ### Context-Aware Content Detection
 
 Two-stage check for price lists and tables. First structural: does >30% of lines look like numbers? Then semantic: is this price list actually relevant? This way `cbr.ru` exchange rates pass for a "курс евро" query (sim=0.75) but `steamcommunity.com` CS:GO prices get rejected (sim=0.05). No hardcoded domain whitelists.
@@ -74,6 +70,10 @@ Auto-detects language by Cyrillic character ratio (10% threshold) and switches m
 Failed fetches excluded from context. Boilerplate, navigation, ads, and newsletter patterns filtered. Citation numbers always match actual sources — no phantom `[4]`, `[5]` references when only 3 sources exist.
 
 ---
+
+<p align="center">
+  <img src="src/production_rag_pipeline/image/voronka" alt="Context-Aware Content Detection illustration">
+</p>
 
 ## Package Overview
 
