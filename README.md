@@ -2,9 +2,9 @@
   <img src="src/production_rag_pipeline/image/production_rag_pipeline_logo.svg" alt="Production RAG Pipeline">
 </p>
 
-# Production RAG Pipeline
-
-## Free Perplexity-style search for local sLLM
+<p align="center">
+  <strong>Free Perplexity-style search for local sLLM</strong>
+</p>
 
 A Python library that gives any local LLM free access to web search — like Perplexity, but self-hosted and without API costs or limits.
 
