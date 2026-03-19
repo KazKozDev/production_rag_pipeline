@@ -21,24 +21,24 @@ Searches Bing + DuckDuckGo, filters noise before fetching, extracts clean conten
 
 <table>
   <tr>
-    <td><a href="#how-it-works"><img src="https://img.shields.io/badge/How_It_Works-c8b8c6?style=flat-square&labelColor=5f4a5a" alt="How It Works"></a></td>
-    <td><a href="#key-features"><img src="https://img.shields.io/badge/Key_Features-d2a7a3?style=flat-square&labelColor=5f4a5a" alt="Key Features"></a></td>
-    <td><a href="#package-overview"><img src="https://img.shields.io/badge/Package_Overview-c692a7?style=flat-square&labelColor=5f4a5a" alt="Package Overview"></a></td>
+    <td><a href="#how-it-works">How It Works</a></td>
+    <td><a href="#key-features">Key Features</a></td>
+    <td><a href="#package-overview">Package Overview</a></td>
   </tr>
   <tr>
-    <td><a href="#requirements"><img src="https://img.shields.io/badge/Requirements-e2d7db?style=flat-square&labelColor=5f4a5a" alt="Requirements"></a></td>
-    <td><a href="#installation"><img src="https://img.shields.io/badge/Installation-b88ea0?style=flat-square&labelColor=5f4a5a" alt="Installation"></a></td>
-    <td><a href="#quick-start"><img src="https://img.shields.io/badge/Quick_Start-d7c0c7?style=flat-square&labelColor=5f4a5a" alt="Quick Start"></a></td>
+    <td><a href="#requirements">Requirements</a></td>
+    <td><a href="#installation">Installation</a></td>
+    <td><a href="#quick-start">Quick Start</a></td>
   </tr>
   <tr>
-    <td><a href="#output-example"><img src="https://img.shields.io/badge/Output_Example-cdaeb9?style=flat-square&labelColor=5f4a5a" alt="Output Example"></a></td>
-    <td><a href="#public-api"><img src="https://img.shields.io/badge/Public_API-c4a2b1?style=flat-square&labelColor=5f4a5a" alt="Public API"></a></td>
-    <td><a href="#example-pipeline-usage"><img src="https://img.shields.io/badge/Example_Pipeline_Usage-decfd4?style=flat-square&labelColor=5f4a5a" alt="Example Pipeline Usage"></a></td>
+    <td><a href="#output-example">Output Example</a></td>
+    <td><a href="#public-api">Public API</a></td>
+    <td><a href="#example-pipeline-usage">Example Pipeline Usage</a></td>
   </tr>
   <tr>
-    <td><a href="#configuration"><img src="https://img.shields.io/badge/Configuration-bd97a8?style=flat-square&labelColor=5f4a5a" alt="Configuration"></a></td>
-    <td><a href="#design-notes"><img src="https://img.shields.io/badge/Design_Notes-d9bcc4?style=flat-square&labelColor=5f4a5a" alt="Design Notes"></a></td>
-    <td><a href="#development"><img src="https://img.shields.io/badge/Development-a87c93?style=flat-square&labelColor=5f4a5a" alt="Development"></a></td>
+    <td><a href="#configuration">Configuration</a></td>
+    <td><a href="#design-notes">Design Notes</a></td>
+    <td><a href="#development">Development</a></td>
   </tr>
 </table>
 
