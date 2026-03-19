@@ -34,8 +34,6 @@ Searches Bing + DuckDuckGo, filters noise before fetching, extracts clean conten
 - [Development](#development)
 - [Community](#community)
 
----
-
 ## How It Works
 
 ```mermaid
