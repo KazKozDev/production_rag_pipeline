@@ -317,8 +317,10 @@ pip install -e '.[full]'
 Verification:
 
 ```bash
+ruff check src tests
 python -m unittest discover -s tests -v
 python -m compileall src
+python -m build
 ```
 
 For contribution workflow, branch expectations, and review checklist, see [CONTRIBUTING.md](CONTRIBUTING.md).

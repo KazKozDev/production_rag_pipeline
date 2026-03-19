@@ -24,10 +24,17 @@ jobs:
       - name: Install package
         run: |
           python -m pip install --upgrade pip
+          python -m pip install ruff build
           python -m pip install -e .
+
+      - name: Lint
+        run: python -m ruff check src tests
 
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
 
       - name: Compile source
         run: python -m compileall src
+
+      - name: Build distributions
+        run: python -m build

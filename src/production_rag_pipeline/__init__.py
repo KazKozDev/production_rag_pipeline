@@ -7,11 +7,11 @@ from .config import (
     load_config,
     update_config,
 )
-from .prompts import ask_with_search, build_llm_prompt
 from .core import save_prompt_to_file
 from .extract import chunk_text, extract_content
 from .fetch import fetch_page, fetch_pages_parallel
 from .pipeline import build_llm_context, search_and_read, search_extract_rerank
+from .prompts import ask_with_search, build_llm_prompt
 from .rerank import filter_results_by_relevance, rerank_chunks
 from .search import (
     merge_results,

@@ -7,7 +7,19 @@ from urllib.parse import urlparse
 def _categorize_query(query):
     query_lower = query.lower()
     brief_keywords = ["курс", "цена", "стоимость", "сколько", "когда", "где", "price", "cost", "rate", "when", "where", "what is", "who is"]
-    comprehensive_keywords = ["обзор", "новости", "история", "сравнение", "анализ", "overview", "news", "history", "comparison", "analysis", "review"]
+    comprehensive_keywords = [
+        "обзор",
+        "новости",
+        "история",
+        "сравнение",
+        "анализ",
+        "overview",
+        "news",
+        "history",
+        "comparison",
+        "analysis",
+        "review",
+    ]
 
     if any(kw in query_lower for kw in brief_keywords):
         query_type = "Factual/Brief"

@@ -12,8 +12,62 @@ _CROSS_ENCODER_MODEL = None
 
 def _tokenize(text):
     tokens = re.findall(r"[a-zA-Zа-яА-ЯёЁ0-9]+", text.lower())
-    stopwords_ru = {"в", "и", "на", "с", "по", "для", "не", "что", "это", "как", "из", "за", "к", "до", "от", "при", "или", "но", "а", "то", "все", "так", "может", "быть", "год", "года", "уже", "более"}
-    stopwords_en = {"the", "is", "at", "which", "on", "a", "an", "as", "are", "was", "were", "been", "be", "have", "has", "had", "do", "does", "did", "will", "would", "could", "should", "can"}
+    stopwords_ru = {
+        "в",
+        "и",
+        "на",
+        "с",
+        "по",
+        "для",
+        "не",
+        "что",
+        "это",
+        "как",
+        "из",
+        "за",
+        "к",
+        "до",
+        "от",
+        "при",
+        "или",
+        "но",
+        "а",
+        "то",
+        "все",
+        "так",
+        "может",
+        "быть",
+        "год",
+        "года",
+        "уже",
+        "более",
+    }
+    stopwords_en = {
+        "the",
+        "is",
+        "at",
+        "which",
+        "on",
+        "a",
+        "an",
+        "as",
+        "are",
+        "was",
+        "were",
+        "been",
+        "be",
+        "have",
+        "has",
+        "had",
+        "do",
+        "does",
+        "did",
+        "will",
+        "would",
+        "could",
+        "should",
+        "can",
+    }
     return [t for t in tokens if len(t) > 2 and t not in (stopwords_ru | stopwords_en)]
 
 
@@ -104,8 +158,8 @@ def _semantic_similarity(query, texts, lang="en"):
     try:
         query_embedding = model.encode(query, convert_to_tensor=False)
         text_embeddings = model.encode(texts, convert_to_tensor=False)
-        from sklearn.metrics.pairwise import cosine_similarity
         import numpy as np
+        from sklearn.metrics.pairwise import cosine_similarity
 
         return cosine_similarity(np.array(query_embedding).reshape(1, -1), np.array(text_embeddings))[0].tolist()
     except Exception as exc:
@@ -125,8 +179,8 @@ def filter_results_by_relevance(query, results, threshold=0.25, lang="en"):
         texts = [r["title"] + " " + r.get("snippet", "") for r in results]
         query_emb = model.encode(query, convert_to_tensor=False, show_progress_bar=False)
         text_embs = model.encode(texts, convert_to_tensor=False, show_progress_bar=False)
-        from sklearn.metrics.pairwise import cosine_similarity
         import numpy as np
+        from sklearn.metrics.pairwise import cosine_similarity
 
         sims = cosine_similarity(np.array(query_emb).reshape(1, -1), np.array(text_embs))[0]
         filtered = []
@@ -147,10 +201,47 @@ def filter_results_by_relevance(query, results, threshold=0.25, lang="en"):
 
 def _detect_query_type(query):
     query_lower = query.lower()
-    brief_keywords = ["курс", "цена", "стоимость", "сколько", "когда", "где", "price", "cost", "rate", "when", "where", "what is", "who is", "date", "время", "адрес", "контакт"]
+    brief_keywords = [
+        "курс",
+        "цена",
+        "стоимость",
+        "сколько",
+        "когда",
+        "где",
+        "price",
+        "cost",
+        "rate",
+        "when",
+        "where",
+        "what is",
+        "who is",
+        "date",
+        "время",
+        "адрес",
+        "контакт",
+    ]
     if any(kw in query_lower for kw in brief_keywords):
         return 8
-    comprehensive_keywords = ["обзор", "новости", "история", "сравнение", "анализ", "все о", "overview", "news", "history", "comparison", "analysis", "review", "все", "полный", "подробно", "complete", "comprehensive", "detailed"]
+    comprehensive_keywords = [
+        "обзор",
+        "новости",
+        "история",
+        "сравнение",
+        "анализ",
+        "все о",
+        "overview",
+        "news",
+        "history",
+        "comparison",
+        "analysis",
+        "review",
+        "все",
+        "полный",
+        "подробно",
+        "complete",
+        "comprehensive",
+        "detailed",
+    ]
     if any(kw in query_lower for kw in comprehensive_keywords):
         return 30
     return 12
@@ -159,7 +250,24 @@ def _detect_query_type(query):
 def _is_news_query(query):
     return any(
         kw in query.lower()
-        for kw in ["новост", "news", "сегодня", "today", "вчера", "yesterday", "сейчас", "now", "актуальн", "current", "latest", "recent", "событи", "events", "происходит", "happening"]
+        for kw in [
+            "новост",
+            "news",
+            "сегодня",
+            "today",
+            "вчера",
+            "yesterday",
+            "сейчас",
+            "now",
+            "актуальн",
+            "current",
+            "latest",
+            "recent",
+            "событи",
+            "events",
+            "происходит",
+            "happening",
+        ]
     )
 
 
@@ -348,7 +456,14 @@ def rerank_chunks(query, chunks_with_meta, top_k=None, lang="en"):
                 hybrid_score *= core.FRESH_CONTENT_BONUS
             elif age_hours < 24 * 7:
                 hybrid_score *= core.RECENT_CONTENT_BONUS
-        scored.append({**chunk, "relevance": round(hybrid_score, 4), "bm25": round(bm25_scores[i], 4), "semantic": round(semantic_scores[i], 4)})
+        scored.append(
+            {
+                **chunk,
+                "relevance": round(hybrid_score, 4),
+                "bm25": round(bm25_scores[i], 4),
+                "semantic": round(semantic_scores[i], 4),
+            }
+        )
 
     scored.sort(key=lambda x: (-x["relevance"], x["source_idx"], x["chunk_idx"]))
 

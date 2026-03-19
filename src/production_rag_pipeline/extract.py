@@ -113,8 +113,8 @@ def _semantic_chunking(text, max_chunk_size=None, lang="en"):
         embeddings = model.encode(sentences, convert_to_tensor=False, show_progress_bar=False)
 
         try:
-            from sklearn.metrics.pairwise import cosine_similarity
             import numpy as np
+            from sklearn.metrics.pairwise import cosine_similarity
         except ImportError:
             return None
 
@@ -310,8 +310,8 @@ def is_content_page(text, query=None, lang="en", min_avg_sentence_len=40, min_se
             model = _get_embedding_model(lang)
             if model:
                 preview = text[:500]
-                from sklearn.metrics.pairwise import cosine_similarity
                 import numpy as np
+                from sklearn.metrics.pairwise import cosine_similarity
 
                 query_emb = model.encode(query, convert_to_tensor=False, show_progress_bar=False)
                 text_emb = model.encode(preview, convert_to_tensor=False, show_progress_bar=False)

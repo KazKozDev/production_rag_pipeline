@@ -11,7 +11,7 @@ import re
 
 # Optional dependencies
 try:
-    import trafilatura
+    import trafilatura  # noqa: F401
 
     HAS_TRAFILATURA = True
 except ImportError:
@@ -61,6 +61,12 @@ IMPERSONATE = [
     "chrome124",
     "safari15_5",
     "safari17_0",
+]
+
+__all__ = [
+    "trafilatura",
+    "SentenceTransformer",
+    "CrossEncoder",
 ]
 
 
