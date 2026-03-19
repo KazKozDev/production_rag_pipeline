@@ -21,29 +21,24 @@ Searches Bing + DuckDuckGo, filters noise before fetching, extracts clean conten
 
 <table>
   <tr>
-    <td><a href="#how-it-works">How It Works</a></td>
-    <td><a href="#key-features">Key Features</a></td>
-    <td><a href="#package-overview">Package Overview</a></td>
+    <td>1. <a href="#how-it-works">How It Works</a></td>
+    <td>2. <a href="#key-features">Key Features</a></td>
+    <td>3. <a href="#package-overview">Package Overview</a></td>
   </tr>
   <tr>
-    <td><a href="#requirements">Requirements</a></td>
-    <td><a href="#installation">Installation</a></td>
-    <td><a href="#quick-start">Quick Start</a></td>
+    <td>4. <a href="#requirements">Requirements</a></td>
+    <td>5. <a href="#installation">Installation</a></td>
+    <td>6. <a href="#quick-start">Quick Start</a></td>
   </tr>
   <tr>
-    <td><a href="#output-example">Output Example</a></td>
-    <td><a href="#public-api">Public API</a></td>
-    <td><a href="#example-pipeline-usage">Example Pipeline Usage</a></td>
+    <td>7. <a href="#output-example">Output Example</a></td>
+    <td>8. <a href="#public-api">Public API</a></td>
+    <td>9. <a href="#example-pipeline-usage">Example Pipeline Usage</a></td>
   </tr>
   <tr>
-    <td><a href="#configuration">Configuration</a></td>
-    <td><a href="#design-notes">Design Notes</a></td>
-    <td><a href="#development">Development</a></td>
-  </tr>
-  <tr>
-    <td><a href="#community">Community</a></td>
-    <td></td>
-    <td></td>
+    <td>10. <a href="#configuration">Configuration</a></td>
+    <td>11. <a href="#design-notes">Design Notes</a></td>
+    <td>12. <a href="#development">Development</a></td>
   </tr>
 </table>
 
