@@ -175,6 +175,11 @@ The launcher bootstraps `.venv` automatically and installs missing dependencies 
 
 Example of the generated prompt shape:
 
+<details>
+<summary>Expand library-generated prompt example for the query `курс биткоина` / `bitcoin rate`</summary>
+
+This is an example of the final prompt text produced by the Python library for the query `курс биткоина` before you send it to a local LLM.
+
 ```text
 CURRENT DATE: 2026-03-18 20:06:55 (Wednesday)
 
@@ -195,6 +200,8 @@ ANSWER FORMAT:
 ## Источники:
 [1] Source Title — URL
 ```
+
+</details>
 
 The final output is designed to be dropped directly into a local LLM, preserving source grounding and a strict citation format.
 
