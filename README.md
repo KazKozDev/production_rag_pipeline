@@ -17,29 +17,6 @@ Searches Bing + DuckDuckGo, filters noise before fetching, extracts clean conten
 [![LLM Ready](https://img.shields.io/badge/output-LLM--ready%20prompts-e2d7db.svg?style=flat&labelColor=5f4a5a)](#how-it-works)
 
 
-## Table of Contents
-
-<table>
-  <tr>
-    <td><a href="#how-it-works">How It Works</a></td>
-    <td><a href="#key-features">Key Features</a></td>
-    <td><a href="#package-overview">Package Overview</a></td>
-    <td><a href="#requirements">Requirements</a></td>
-  </tr>
-  <tr>
-    <td><a href="#installation">Installation</a></td>
-    <td><a href="#quick-start">Quick Start</a></td>
-    <td><a href="#output-example">Output Example</a></td>
-    <td><a href="#public-api">Public API</a></td>
-  </tr>
-  <tr>
-    <td><a href="#example-pipeline-usage">Example Pipeline Usage</a></td>
-    <td><a href="#configuration">Configuration</a></td>
-    <td><a href="#design-notes">Design Notes</a></td>
-    <td><a href="#development">Development</a></td>
-  </tr>
-</table>
-
 ## How It Works
 
 ```mermaid
